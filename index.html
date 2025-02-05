@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parámetros GET</title>
+    <title>Entra en el siguiente enlace</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,11 +45,10 @@
             const id_subestacion = params.get("id_subestacion");
 
             let message = "No se encontró ningún parámetro válido.";
-
             if (id_estacion && !id_subestacion) {
-                message = `ID de Estación: ${id_estacion}`;
+                message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_estacion=${id_estacion}`;
             } else if (id_subestacion && !id_estacion) {
-                message = `ID de Subestación: ${id_subestacion}`;
+                message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_subestacion=${id_subestacion}`;
             } else if (id_estacion && id_subestacion) {
                 message = "Error: Solo uno de los dos parámetros debe estar presente.";
             }
