@@ -34,7 +34,10 @@
 
 <body>
     <div class="container">
-        <h2>Valores desde GET</h2>
+        <img src="https://static.misionesonline.news/wp-content/uploads/2019/12/11170044/energia-de-misiones.jpg" 
+             alt="Energía de Misiones" 
+             class="responsive-img">
+        <h2>Enlace a hora extra</h2>
         <a id="result">Cargando...</a>
     </div>
     <script>
@@ -47,11 +50,11 @@
             let message = "No se encontró ningún parámetro válido.";
             if (id_estacion && !id_subestacion) {
                 message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_estacion=${id_estacion}`;
-                document.getElementById("result").innerText = message;
+                document.getElementById("result").textContent = message;
                 document.getElementById("result").href = message;
             } else if (id_subestacion && !id_estacion) {
                 message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_subestacion=${id_subestacion}`;
-                document.getElementById("result").innerText = message;
+                document.getElementById("result").textContent = message;
                 document.getElementById("result").href = message;
             } else if (id_estacion && id_subestacion) {
                 message = "Error: Solo uno de los dos parámetros debe estar presente.";
