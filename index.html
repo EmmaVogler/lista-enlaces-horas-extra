@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parámetros GET</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Valores desde GET</h2>
+        <p id="result">Cargando...</p>
+    </div>
+    <script>
+        // Función para obtener parámetros de la URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const id_estacion = params.get("id_estacion");
+            const id_subestacion = params.get("id_subestacion");
+
+            let message = "No se encontró ningún parámetro válido.";
+
+            if (id_estacion && !id_subestacion) {
+                message = `ID de Estación: ${id_estacion}`;
+            } else if (id_subestacion && !id_estacion) {
+                message = `ID de Subestación: ${id_subestacion}`;
+            } else if (id_estacion && id_subestacion) {
+                message = "Error: Solo uno de los dos parámetros debe estar presente.";
+            }
+
+            document.getElementById("result").textContent = message;
+        }
+
+        // Ejecutar la función cuando cargue la página
+        window.onload = getQueryParams;
+
+    </script>
+</body>
+
+</html>
