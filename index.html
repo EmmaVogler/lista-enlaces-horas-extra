@@ -47,11 +47,11 @@
             let message = "No se encontró ningún parámetro válido.";
             if (id_estacion && !id_subestacion) {
                 message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_estacion=${id_estacion}`;
-                document.getElementById("result").value = message;
+                document.getElementById("result").innerText = message;
                 document.getElementById("result").href = message;
             } else if (id_subestacion && !id_estacion) {
                 message = `http://emsatablada.no-ip.org:8081/intranet-explotacion/public/horas-extras-operaciones?id_subestacion=${id_subestacion}`;
-                document.getElementById("result").value = message;
+                document.getElementById("result").innerText = message;
                 document.getElementById("result").href = message;
             } else if (id_estacion && id_subestacion) {
                 message = "Error: Solo uno de los dos parámetros debe estar presente.";
